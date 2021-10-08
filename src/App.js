@@ -1,8 +1,25 @@
 import React, { useState, useEffect }  from 'react';
 import './App.css';
 import axios from 'axios';
+import styled from 'styled-components'
 import Character from './components/Character'
 const Base_url = `https://swapi.dev/api/people`;
+
+
+const Header = styled.h1`width: 40%;
+margin-left: 29%;
+border: 2px solid yellow;
+text-decoration: underline;
+color: yellow;
+padding: 2%;
+background: black;
+letter-spacing: 3px;
+text-transform: uppercase;
+display: flex;
+justify-content: center;
+`
+
+
 
 const App = () => {
 
@@ -38,7 +55,7 @@ console.log('IS DATA', data)
 
   return (
     <div className="App">
-      <h1 className="Header">Characters</h1>
+      <Header>Characters</Header>
       <Character data={data} isLoaded={isLoaded} />
     </div>
   );
