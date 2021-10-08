@@ -1,6 +1,7 @@
 import React, { useState, useEffect }  from 'react';
 import './App.css';
 import axios from 'axios';
+import Character from './components/Character'
 const Base_url = `https://swapi.dev/api/people`;
 
 const App = () => {
@@ -24,6 +25,7 @@ useEffect(() => {
   }
 }, [data])
 
+console.log('IS DATA', data)
 
 
 
@@ -37,6 +39,7 @@ useEffect(() => {
   return (
     <div className="App">
       <h1 className="Header">Characters</h1>
+      <Character data={data} isLoaded={isLoaded} />
     </div>
   );
 }
