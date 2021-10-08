@@ -1,7 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect }  from 'react';
 import './App.css';
+import axios from 'axios';
+const Base_url = `https://swapi.dev/api/people`;
 
 const App = () => {
+
+const [data , setData] = useState(null)
+const [isLoaded, setIsLoaded] = useState(false)
+
+useEffect(()=>{
+  axios.get(`${Base_url}`)
+.then(response => {
+  if (response) {
+    setData(response.data)
+    console.log('RESPONSE', response.data)
+  }
+}).catch(err =>{console.log(err);})
+},[])
+
+useEffect(() => {
+  if (data) {
+    setIsLoaded(true)
+  }
+}, [data])
+
+
+
+
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
 
